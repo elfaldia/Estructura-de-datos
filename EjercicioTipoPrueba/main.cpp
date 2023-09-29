@@ -103,4 +103,9 @@ Alumno encontrarAlumno(string nombreAlumno, Lista* listaAlumnos){
     }
 };
 
+swop(A1,A2);
+
+ A1 = juan;
+ A2 = pepito;
+
 */
