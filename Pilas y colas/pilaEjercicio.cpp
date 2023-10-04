@@ -35,26 +35,22 @@ int main(){
         cout<<camiones.top().getPeso()<<endl;
     }
     cout<<" "<<endl;
-    while(!camiones.empty()){
-        if(aux1.empty()){
+    while (!camiones.empty()) {
+        if (aux1.empty() || camiones.top().getPeso() <= aux1.top().getPeso()) {
             aux1.push(camiones.top());
             camiones.pop();
-        }else{
-            if(camiones.top().getPeso() <= aux1.top().getPeso()){
-                aux1.push(camiones.top());
-                camiones.pop();
-            }else{
-                while(camiones.top().getPeso() >= aux1.top().getPeso() && !aux1.empty()){
-                    aux2.push(aux1.top());
-                    aux1.pop();           
-                }
-                aux1.push(camiones.top());
-                camiones.pop();
-                while(!aux2.empty()){
-                    aux1.push(aux2.top());
-                    aux2.pop();
-                }
-            }    
+        }
+        else {
+            while (!aux1.empty() && camiones.top().getPeso() >= aux1.top().getPeso()) {
+                aux2.push(aux1.top());
+                aux1.pop();
+            }
+            aux1.push(camiones.top());
+            camiones.pop();
+            while (!aux2.empty()) {
+                aux1.push(aux2.top());
+                aux2.pop();
+            }
         }
     }
     
@@ -63,7 +59,8 @@ int main(){
     }
 
     while(!aux1.empty()){
-        camiones.push(aux1.top());
+        cout << aux1.top().getPeso() << endl;
+        camiones.push(aux1.top());,
         aux1.pop();
     }
 
