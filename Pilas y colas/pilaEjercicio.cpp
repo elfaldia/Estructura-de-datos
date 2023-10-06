@@ -60,7 +60,7 @@ int main(){
 
     while(!aux1.empty()){
         cout << aux1.top().getPeso() << endl;
-        camiones.push(aux1.top());,
+        camiones.push(aux1.top());
         aux1.pop();
     }
 
