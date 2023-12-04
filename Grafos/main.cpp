@@ -1,6 +1,6 @@
-#include <limits>
 #include <vector>
 #include <string>
+#include <limits>
 #include <iostream>
 
 using namespace std;
@@ -19,14 +19,34 @@ class Nodo{
         }
 };
 
+void bellmanFord(vector<Nodo*> nodos, Nodo* origen)
+{
+    vector<pair<Nodo*,pair<Nodo*,int>>> distancias;
+    for(Nodo* nodo:nodos){
+        if(nodo == origen){
+            distancias.push_back(make_pair(origen,make_pair(origen,0)));
+        }else{
+            int max = numeric_limit<int>::max();
+            distancias.push_back(make_pair(origen,make_pair(origen,0)));
+        }
+    }
+}
+
 int main()
 {
+    vector<Nodo*> nodos;
     Nodo* nodoA = new Nodo("A");
+    nodos.push_back(nodoA);
     Nodo* nodoB = new Nodo("B");
+    nodos.push_back(nodoB);
     Nodo* nodoC = new Nodo("C");
+    nodos.push_back(nodoC);
     Nodo* nodoD = new Nodo("D");
+    nodos.push_back(nodoD);
     Nodo* nodoE = new Nodo("E");
+    nodos.push_back(nodoE);
     Nodo* nodoF = new Nodo("F");
+    nodos.push_back(nodoF);
     
     nodoA -> agregarReferencia(nodoB,1);
     nodoA -> agregarReferencia(nodoC,2);
